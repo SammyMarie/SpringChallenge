@@ -1,5 +1,16 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.bmuschko:gradle-tomcat-plugin:2.2.4'
+    }
+}
+
 apply plugin: 'java'
 apply plugin: 'war'
+apply plugin: 'com.bmuschko.tomcat'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -12,6 +23,9 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'org.springframework:spring-webmvc:4.2.4.RELEASE'
 
+    tomcat 'org.apache.tomcat.embed:tomcat-embed-core:8.0.28'
+    tomcat 'org.apache.tomcat.embed:tomcat-embed-logging-juli:8.0.28'
+    tomcat 'org.apache.tomcat.embed:tomcat-embed-jasper:8.0.28'
 }
 
 task wrapper(type : Wrapper){
